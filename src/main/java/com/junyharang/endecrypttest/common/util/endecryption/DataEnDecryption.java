@@ -1,4 +1,4 @@
-package com.junyharang.endecrypttest.common.constant.endecryption;
+package com.junyharang.endecrypttest.common.util.endecryption;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;

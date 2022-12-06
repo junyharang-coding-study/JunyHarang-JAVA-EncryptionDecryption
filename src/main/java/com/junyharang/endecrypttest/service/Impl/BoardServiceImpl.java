@@ -2,7 +2,7 @@ package com.junyharang.endecrypttest.service.Impl;
 
 import com.junyharang.endecrypttest.common.constant.DefaultResponse;
 import com.junyharang.endecrypttest.common.constant.DefaultResponseMessage;
-import com.junyharang.endecrypttest.common.constant.endecryption.DataEnDecryption;
+import com.junyharang.endecrypttest.common.util.endecryption.DataEnDecryption;
 import com.junyharang.endecrypttest.model.dto.request.BoardRequestDTO;
 import com.junyharang.endecrypttest.model.dto.request.BoardUpdateRequestDTO;
 import com.junyharang.endecrypttest.model.dto.response.BoardResponseDTO;
@@ -10,7 +10,6 @@ import com.junyharang.endecrypttest.model.entity.TestBoard;
 import com.junyharang.endecrypttest.repository.BoardRepository;
 import com.junyharang.endecrypttest.service.BoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
