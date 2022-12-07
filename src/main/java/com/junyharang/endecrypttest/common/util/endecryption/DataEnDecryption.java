@@ -28,11 +28,11 @@ public class DataEnDecryption {
         try {
             Cipher cipher = Cipher.getInstance("AES");
 
-            byte[] initializationVector = new byte[16];
+            byte[] initializationVector = new byte[32];
             int index = 0;
 
             for (byte b : cipherKey.getBytes(StandardCharsets.UTF_8)) {
-                initializationVector[index++ % 16] ^= b;
+                initializationVector[index++ % 32] ^= b;
             }
 
             SecretKeySpec keySpec = new SecretKeySpec(initializationVector, "AES");
