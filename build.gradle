@@ -22,6 +22,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
+    // MapStruct 의존성 추가
+    // https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor
+    // 순서 주의! Lombok 사용 시 Lombok 의존성 설정이 먼저 위치
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
     runtimeOnly 'mysql:mysql-connector-java'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     annotationProcessor 'org.projectlombok:lombok'
@@ -30,6 +36,8 @@ dependencies {
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
 // https://mvnrepository.com/artifact/commons-codec/commons-codec
     implementation 'commons-codec:commons-codec:1.15'
+
+
 }
 
 tasks.named('test') {

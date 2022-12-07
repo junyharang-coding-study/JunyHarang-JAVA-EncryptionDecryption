@@ -2,6 +2,7 @@ package com.junyharang.endecrypttest.service.Impl;
 
 import com.junyharang.endecrypttest.common.constant.DefaultResponse;
 import com.junyharang.endecrypttest.common.constant.DefaultResponseMessage;
+import com.junyharang.endecrypttest.common.mapper.TestBoardMapper;
 import com.junyharang.endecrypttest.common.util.endecryption.DataEnDecryption;
 import com.junyharang.endecrypttest.model.dto.request.BoardRequestDTO;
 import com.junyharang.endecrypttest.model.dto.request.BoardUpdateRequestDTO;
@@ -23,6 +24,7 @@ public class BoardServiceImpl implements BoardService {
 
 
     private final BoardRepository boardRepository;
+    private final TestBoardMapper testBoardMapper;
 
     @Override
     @Transactional
@@ -36,10 +38,9 @@ public class BoardServiceImpl implements BoardService {
 
         String cipherKey = DataEnDecryption.base64Encoder(boardRequestDTO.getTitle());
 
-        TestBoard testBoard = TestBoard.builder()
-                .title(boardRequestDTO.getTitle())
-                .content(DataEnDecryption.dataEnDecrypt(cipherKey, boardRequestDTO.getContent(), 1))
-                .build();
+        boardRequestDTO.setContent(DataEnDecryption.dataEnDecrypt(cipherKey, boardRequestDTO.getContent(), 1));
+
+        TestBoard testBoard = testBoardMapper.toEntity(boardRequestDTO);
 
         Long saveId = boardRepository.save(testBoard).getId();
 
